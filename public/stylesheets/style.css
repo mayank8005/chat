@@ -1,0 +1,305 @@
+textarea,
+input{
+  font: 13px "Trebuchet MS", sans-serif;
+}
+span#typing{
+  font-style: italic;
+}
+#lets-chat{
+  margin-top: 40px;
+  max-width:300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#chat-window,
+textarea,
+#handle{
+  border: 1px solid #000;
+}
+#chat-window{
+  background-color: #fafafa;
+  width: 100%;
+  height:300px;
+  overflow-y: scroll;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+#handle{
+  width: 100%;
+  padding: 10px;
+  border-bottom: 0;
+  margin: 0;
+}
+::placeholder{
+  font-family: 'Indie Flower', cursive;
+}
+#send{
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  width: 107%;
+  padding: 0;
+  margin: 0;
+}
+#send{
+  background-color:#00E676;
+}
+
+span#sender-name{
+  color: #0D47A1;
+  font-family: 'Spectral SC', serif;
+  font-weight: bold;
+}
+
+textarea{
+  width: 100%;
+  padding:10px;
+  margin: 0;
+  border-top: 0;
+  max-width: 100%;
+}
+.chatStatus{
+  color: #bbbbbb;
+}
+textarea,
+#handle{
+  outline: none;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+html,body{
+  height: 100%;
+  overflow-x: hidden;
+}
+body{
+  background-image: url("../images/wood.jpg");
+}
+/*parallaax at top */
+.parallax{
+  background-image: url("../images/wood.jpg");   /* Set a specific height */
+  min-height: 200px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 10px;
+  padding-top: 35px;
+  font-size: 50px;
+  text-align: center;
+  color:silver;
+  text-shadow:
+          4px 4px 1px #300000,
+          4px 6px 1px #400000,
+          4px 8px 1px #500000,
+          4px 10px 1px #600000,
+          4px 12px 1px #700000,
+          4px 14px 1px #800000,
+          4px 28px 1px #F00000,
+          4px 30px 1px #FA0000,
+          4px 32px 1px #FB0000,
+          4px 34px 1px #FC0000,
+          4px 36px 1px #FD0000,
+          4px 38px 1px #FE0000,
+          4px 40px 2px #FF0000;
+}
+
+/*header initially */
+.header{
+  position: sticky;
+  background: #FA0000;
+  padding: 10px;
+  padding-top: 5px;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Audiowide', cursive;
+  line-height: 1.3em;
+  border: 2px dashed #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px #aa3030;
+  font-weight: normal;
+  max-width:100%;
+  height: 28px;
+}
+/* footer styling */
+.footer{
+  text-align: center;
+  color: #fff;
+  background-image: url("../images/dark.jpg");
+  height: 50px;
+  width: 100%;
+}
+
+/* animation on header after it touches top of window */
+.change{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.button{
+  font-size: 30px;
+  border: 2px solid #fff;
+  padding: 5px;
+  position: relative;
+  margin-top: 100px;
+  border-radius: 25%;
+  display: inline;
+}
+.btn-container{
+  background-image: url("../images/ghar.jpg");
+  text-align: center;
+  padding: 10px;
+  padding-top: 80px;
+  max-width: 100%;
+  height: 200px;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+/* social media icons */
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+.fa:hover {
+  opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-arrow-right{
+  color: #fff;
+}
+
+/*typing animation */
+.title h{
+  color: #fff;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end),
+  blink-caret .5s step-end infinite;
+  animation-iteration-count: infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+/* 2nd parallax */
+.parallax2{
+  padding-top: 60px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-image: url("../images/dark.jpg");   /* Set a specific height */
+  min-height: 400px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.type-style{
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  padding-top: 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 15px;
+  min-height: 300px;
+  width: 80%;
+}
+
+/* animation on header */
+
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.warning{
+  text-align: center;
+  font-size:30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  width: 70%;
+  font-family: 'Acme', sans-serif;
+}
+.a{
+  background-image: url("../images/wood.jpg");
+}
+/* warning poster */
+.wrapper {
+  margin: 50px auto;
+  width: 280px;
+  height: 370px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+}
+
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+

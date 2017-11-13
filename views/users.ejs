@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chit-Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div id="lets-chat">
+    <input type="text" id="handle" placeholder="Enter Your Name" >
+    <div id="chat-window">
+        <div id="output"></div>
+        <div id="feedback"></div>
+    </div>
+    <textarea id="message" autofocus placeholder="Type Your Message" autocomplete="off"></textarea>
+    <button id="send">SEND</button>
+    <div class="chatStatus">Status: <span>Connected</span></div>
+</div>
+
+<script>
+    (function () {
+        var getNode = function (s) {
+            return document.querySelector(s);
+        },
+            //get required nodes
+            textarea = getNode('#message'),
+            output = getNode('#output'),
+            chatName = getNode('#handle'),
+            btn = getNode('#send'),
+            status = getNode('.chatStatus span');
+
+        statusDefault = status.textContent,
+        setStatus = function (s) {
+            status.textContent = s;
+            if(s!== statusDefault){
+                var delay = setTimeout(function(){
+                    setStatus(statusDefault);
+                    clearInterval(delay);
+                }, 3000);
+            }
+        };
+        try{
+                var socket = io.connect('http://127.0.0.1:8000');
+            }catch(e){
+                ////set status to warn user
+            }
+            if(socket !== undefined){
+                //listen for output
+                socket.on('output',function (data) {
+                    if(data.length){
+                        for(var x =0; x<data.length; x=x+1){
+                            var msg = document.createElement('div');
+                            msg.setAttribute('class','chat-message');
+                            msg.innerHTML = '<span id="sender-name">'+data[x].name+'</span>: '+ data[x].message;
+
+                            //append
+                            output.appendChild(msg);
+                        }
+                    }
+                });
+
+                //listen for a status
+                socket.on('status', function(data){
+                    setStatus((typeof data ==='object') ? data.message : data);
+
+                    if(data.clear === true){
+                        textarea.value = '';
+                    }
+                });
+                //listen for send btn
+                btn.addEventListener('click', function () {
+                   var name = chatName.value,
+                       msg = textarea.value;
+                   console.log(name);
+                   socket.emit('input',{
+                      name:name,
+                      message : msg
+                   });
+                });
+            }
+    })();
+</script>
+</body>
+</html>
